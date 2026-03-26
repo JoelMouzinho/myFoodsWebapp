@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>myFoods Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>myFoods Dashboard – Pizza Palace</h1>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <button onclick="showTab('orders')">Orders</button>
+    <button onclick="showTab('order-items')">Order Items</button>
+    <button onclick="showTab('menu')">Menu</button>
+    <button onclick="showTab('hours')">Opening Hours</button>
+    <button onclick="showTab('holidays')">Holidays</button>
+    <button onclick="showTab('reviews')">Reviews</button>
+    <button onclick="showTab('notifications')">Notifications</button>
+    <button onclick="showTab('users')">Staff</button>
+    <button onclick="showTab('roles')">Roles</button>
+    <button onclick="showTab('addresses')">Addresses</button>
+  </nav>
+
+  <main class="content">
+
+    <!-- ORDERS -->
+    <section id="orders" class="tab active">
+      <h2>Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Type</th>
+            <th>Total</th>
+            <th>Payment</th>
+            <th>Placed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1001</td>
+            <td>Pending</td>
+            <td>Delivery</td>
+            <td>CHF 25.00</td>
+            <td>Paid</td>
+            <td>12:30</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ORDER ITEMS -->
+    <section id="order-items" class="tab">
+      <h2>Order Items</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1001</td>
+            <td>Margherita</td>
+            <td>2</td>
+            <td>CHF 30.00</td>
+            <td>No onions</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="tab">
+      <h2>Menu Items</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th>Prep Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Margherita</td>
+            <td>CHF 15.00</td>
+            <td>Yes</td>
+            <td>15 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- HOURS -->
+    <section id="hours" class="tab">
+      <h2>Opening Hours</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>Closed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>10:00</td>
+            <td>22:00</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- HOLIDAYS -->
+    <section id="holidays" class="tab">
+      <h2>Holidays</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-12-25</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="tab">
+      <h2>Reviews</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Food</th>
+            <th>Delivery</th>
+            <th>Overall</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Max</td>
+            <td>5</td>
+            <td>4</td>
+            <td>5</td>
+            <td>Great!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section id="notifications" class="tab">
+      <h2>Notifications</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Channel</th>
+            <th>Title</th>
+            <th>Sent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Order</td>
+            <td>Push</td>
+            <td>New Order</td>
+            <td>12:31</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- STAFF USERS -->
+    <section id="users" class="tab">
+      <h2>Staff</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Active</th>
+            <th>Last Login</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Anna</td>
+            <td>anna@pizza.ch</td>
+            <td>Yes</td>
+            <td>Yesterday</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ROLES -->
+    <section id="roles" class="tab">
+      <h2>Roles & Permissions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Permissions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Küche</td>
+            <td>View Orders, Update Status</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ADDRESSES -->
+    <section id="addresses" class="tab">
+      <h2>Customer Addresses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>ZIP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Max</td>
+            <td>Main Street 1</td>
+            <td>Zurich</td>
+            <td>8000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script src="/src/app.js"></script>
+</body>
+</html>
