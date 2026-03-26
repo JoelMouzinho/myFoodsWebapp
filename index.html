@@ -1,263 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>myFoods Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="logo/icon32x32nameless.png"
 </head>
+
 <body>
 
-<header>
-  <h1>myFoods Dashboard – Pizza Palace</h1>
-</header>
+  <header>
+    <img src="logo/icon32x32.png" alt="myfoods" style="width: 120px;height: 120px;">
+    <h1>myFoods Dashboard – Pizza Palace</h1>
+    <div class="theme-toggle">
+      <label>
+        Dark Mode
+        <input type="checkbox" id="themeSwitch"
+      </label>
+    </div>
+  </header>
 
-<div class="layout">
-  <nav class="sidebar">
-    <button onclick="showTab('orders')">Orders</button>
-    <button onclick="showTab('order-items')">Order Items</button>
-    <button onclick="showTab('menu')">Menu</button>
-    <button onclick="showTab('hours')">Opening Hours</button>
-    <button onclick="showTab('holidays')">Holidays</button>
-    <button onclick="showTab('reviews')">Reviews</button>
-    <button onclick="showTab('notifications')">Notifications</button>
-    <button onclick="showTab('users')">Staff</button>
-    <button onclick="showTab('roles')">Roles</button>
-    <button onclick="showTab('addresses')">Addresses</button>
-  </nav>
+  <div class="layout">
+    <nav class="sidebar">
+      <button onclick="showTab('orders')">Orders</button>
+      <button onclick="showTab('order-items')">Order Items</button>
+      <button onclick="showTab('menu')">Menu</button>
+      <button onclick="showTab('hours')">Opening Hours</button>
+      <button onclick="showTab('holidays')">Holidays</button>
+      <button onclick="showTab('reviews')">Reviews</button>
+      <button onclick="showTab('notifications')">Notifications</button>
+      <button onclick="showTab('users')">Staff</button>
+      <button onclick="showTab('roles')">Roles</button>
+      <button onclick="showTab('addresses')">Addresses</button>
+      <button onclick="showTab('inventory')">Inventory</button>
+    </nav>
 
-  <main class="content">
+    <main class="content">
 
-    <!-- ORDERS -->
-    <section id="orders" class="tab active">
-      <h2>Orders</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Status</th>
-            <th>Type</th>
-            <th>Total</th>
-            <th>Payment</th>
-            <th>Placed</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>#1001</td>
-            <td>Pending</td>
-            <td>Delivery</td>
-            <td>CHF 25.00</td>
-            <td>Paid</td>
-            <td>12:30</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- ORDERS -->
+      <section id="orders" class="tab active">
+        <h2>Orders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Status</th>
+              <th>Type</th>
+              <th>Total</th>
+              <th>Payment</th>
+              <th>Placed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1001</td>
+              <td>Pending</td>
+              <td>Delivery</td>
+              <td>CHF 25.00</td>
+              <td>Paid</td>
+              <td>12:30</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- ORDER ITEMS -->
-    <section id="order-items" class="tab">
-      <h2>Order Items</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Item</th>
-            <th>Qty</th>
-            <th>Total</th>
-            <th>Note</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>#1001</td>
-            <td>Margherita</td>
-            <td>2</td>
-            <td>CHF 30.00</td>
-            <td>No onions</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- ORDER ITEMS -->
+      <section id="order-items" class="tab">
+        <h2>Order Items</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1001</td>
+              <td>Margherita</td>
+              <td>2</td>
+              <td>CHF 30.00</td>
+              <td>No onions</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- MENU -->
-    <section id="menu" class="tab">
-      <h2>Menu Items</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Available</th>
-            <th>Prep Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Margherita</td>
-            <td>CHF 15.00</td>
-            <td>Yes</td>
-            <td>15 min</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- MENU -->
+      <section id="menu" class="tab">
+        <h2>Menu Items</h2>
 
-    <!-- HOURS -->
-    <section id="hours" class="tab">
-      <h2>Opening Hours</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Open</th>
-            <th>Close</th>
-            <th>Closed</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Monday</td>
-            <td>10:00</td>
-            <td>22:00</td>
-            <td>No</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <!-- Add new item -->
+        <div class="form-box">
+          <h3>Add Item</h3>
+          <input type="text" placeholder="Name">
+          <input type="text" placeholder="Description">
+          <input type="number" placeholder="Price">
+          <input type="number" placeholder="Prep Minutes">
+          <label>
+            <input type="checkbox"> Available
+          </label>
+          <button>Add Item</button>
+        </div>
 
-    <!-- HOLIDAYS -->
-    <section id="holidays" class="tab">
-      <h2>Holidays</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2026-12-25</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <!-- Existing items -->
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Available</th>
+              <th>Prep</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input value="Margherita"></td>
+              <td><input type="number" value="15"></td>
+              <td><input type="checkbox" checked></td>
+              <td><input type="number" value="15"></td>
+              <td>
+                <button>Save</button>
+                <button class="danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- REVIEWS -->
-    <section id="reviews" class="tab">
-      <h2>Reviews</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Food</th>
-            <th>Delivery</th>
-            <th>Overall</th>
-            <th>Comment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Max</td>
-            <td>5</td>
-            <td>4</td>
-            <td>5</td>
-            <td>Great!</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- HOURS -->
+      <section id="hours" class="tab">
+        <h2>Opening Hours</h2>
 
-    <!-- NOTIFICATIONS -->
-    <section id="notifications" class="tab">
-      <h2>Notifications</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Channel</th>
-            <th>Title</th>
-            <th>Sent</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Order</td>
-            <td>Push</td>
-            <td>New Order</td>
-            <td>12:31</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Open</th>
+              <th>Close</th>
+              <th>Closed</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td><input type="time" value="10:00"></td>
+              <td><input type="time" value="22:00"></td>
+              <td><input type="checkbox"></td>
+              <td><button>Save</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- STAFF USERS -->
-    <section id="users" class="tab">
-      <h2>Staff</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Active</th>
-            <th>Last Login</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Anna</td>
-            <td>anna@pizza.ch</td>
-            <td>Yes</td>
-            <td>Yesterday</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- HOLIDAYS -->
+      <section id="holidays" class="tab">
+        <h2>Holidays</h2>
 
-    <!-- ROLES -->
-    <section id="roles" class="tab">
-      <h2>Roles & Permissions</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Role</th>
-            <th>Permissions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Küche</td>
-            <td>View Orders, Update Status</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <div class="form-inline">
+          <input type="date">
+          <button>Add Holiday</button>
+        </div>
 
-    <!-- ADDRESSES -->
-    <section id="addresses" class="tab">
-      <h2>Customer Addresses</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>ZIP</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Max</td>
-            <td>Main Street 1</td>
-            <td>Zurich</td>
-            <td>8000</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>24.12.2026 - 05.01.2027</td>
+              <td><button class="danger">Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-  </main>
-</div>
+      <!-- REVIEWS -->
+      <section id="reviews" class="tab">
+        <h2>Reviews</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Food</th>
+              <th>Delivery</th>
+              <th>Overall</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Max</td>
+              <td>5</td>
+              <td>4</td>
+              <td>5</td>
+              <td>Great!</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-<script src="/src/app.js"></script>
+      <!-- NOTIFICATIONS -->
+      <section id="notifications" class="tab">
+        <h2>Notifications</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Channel</th>
+              <th>Title</th>
+              <th>Sent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Order</td>
+              <td>Push</td>
+              <td>New Order</td>
+              <td>12:31</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- STAFF USERS -->
+      <section id="users" class="tab">
+        <h2>Staff</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Active</th>
+              <th>Last Login</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Anna</td>
+              <td>anna@pizza.ch</td>
+              <td>Yes</td>
+              <td>Yesterday</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ROLES -->
+      <section id="roles" class="tab">
+        <h2>Roles & Permissions</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Permissions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Küche</td>
+              <td>View Orders, Update Status</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ADDRESSES -->
+      <section id="addresses" class="tab">
+        <h2>Customer Addresses</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Street</th>
+              <th>City</th>
+              <th>ZIP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Max</td>
+              <td>Main Street 1</td>
+              <td>Zurich</td>
+              <td>8000</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- INVENTORY -->
+      <section id="inventory" class="tab">
+        <h2>Inventory (Ingredients)</h2>
+
+        <!-- Add Ingredient -->
+        <div class="form-box">
+          <h3>Add Ingredient</h3>
+          <input type="text" placeholder="Ingredient Name">
+          <input type="number" placeholder="Quantity">
+          <input type="number" placeholder="Minimum Threshold">
+          <label>
+            <input type="checkbox"> Auto Reorder
+          </label>
+          <button>Add Ingredient</button>
+        </div>
+
+        <!-- Inventory Table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Min</th>
+              <th>Status</th>
+              <th>Auto Buy</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><input value="Tomatoes"></td>
+              <td><input type="number" value="5"></td>
+              <td><input type="number" value="10"></td>
+              <td class="low">Low</td>
+              <td><input type="checkbox" checked></td>
+              <td>
+                <button>Save</button>
+                <button class="danger">Delete</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input value="Cheese"></td>
+              <td><input type="number" value="20"></td>
+              <td><input type="number" value="10"></td>
+              <td class="ok">OK</td>
+              <td><input type="checkbox"></td>
+              <td>
+                <button>Save</button>
+                <button class="danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/src/app.js"></script>
 </body>
+
 </html>
