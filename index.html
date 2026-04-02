@@ -5,21 +5,48 @@
   <meta charset="UTF-8">
   <title>myFoods Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="logo/icon32x32nameless.png"
+  <link rel="icon" type="image/x-icon" href="logo/icon32x32nameless.png">
 </head>
 
 <body>
 
   <header>
-    <img src="logo/icon32x32.png" alt="myfoods" style="width: 120px;height: 120px;">
+    <img src="logo/icon32x32.png" alt="myfoods" style="width: 100px;height: 100px;">
     <h1>myFoods Dashboard – Pizza Palace</h1>
-    <div class="theme-toggle">
-      <label>
-        Dark Mode
-        <input type="checkbox" id="themeSwitch"
-      </label>
+    <div class="header-controls">
+      <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+      <div class="theme-toggle">
+        <label class="toggle-switch">
+          <input type="checkbox" id="themeSwitch">
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
   </header>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="login-modal">
+    <div class="login-modal-content">
+      <button class="close-btn" onclick="toggleLoginModal()">&times;</button>
+      <h2>Login to Pizza Palace</h2>
+      <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group checkbox">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <button type="submit" class="submit-btn">Sign In</button>
+      </form>
+      <p class="login-footer">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+  </div>
 
   <div class="layout">
     <nav class="sidebar">
@@ -341,18 +368,18 @@
 
       <!-- INVENTORY -->
       <section id="inventory" class="tab">
-        <h2>Inventory (Ingredients)</h2>
+        <h2>Inventory</h2>
 
-        <!-- Add Ingredient -->
+        <!-- Add Item -->
         <div class="form-box">
-          <h3>Add Ingredient</h3>
-          <input type="text" placeholder="Ingredient Name">
-          <input type="number" placeholder="Quantity">
-          <input type="number" placeholder="Minimum Threshold">
+          <h3>Add Item</h3>
+          <input type="text" placeholder="Item Name" id="ingredientName">
+          <input type="number" placeholder="Quantity" id="ingredientQty">
+          <input type="number" placeholder="Minimum Threshold" id="ingredientMin">
           <label>
-            <input type="checkbox"> Auto Reorder
+            <input type="checkbox" id="autoReorder"> Auto Reorder
           </label>
-          <button>Add Ingredient</button>
+          <button class="additembutton" onclick="addIngredient()">Add Item</button>
         </div>
 
         <!-- Inventory Table -->
@@ -368,30 +395,7 @@
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td><input value="Tomatoes"></td>
-              <td><input type="number" value="5"></td>
-              <td><input type="number" value="10"></td>
-              <td class="low">Low</td>
-              <td><input type="checkbox" checked></td>
-              <td>
-                <button>Save</button>
-                <button class="danger">Delete</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td><input value="Cheese"></td>
-              <td><input type="number" value="20"></td>
-              <td><input type="number" value="10"></td>
-              <td class="ok">OK</td>
-              <td><input type="checkbox"></td>
-              <td>
-                <button>Save</button>
-                <button class="danger">Delete</button>
-              </td>
-            </tr>
+          <tbody id="inventoryTableBody">
           </tbody>
         </table>
       </section>
