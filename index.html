@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>myFoods Dashboard</title>
+  <title data-i18n="dashboardTitle">myFoods Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="logo/icon32x32nameless.png">
 </head>
@@ -12,71 +12,92 @@
 
   <header>
     <img src="logo/icon32x32.png" alt="myfoods" style="width: 100px;height: 100px;">
-    <h1>myFoods Dashboard – Pizza Palace</h1>
+    <h1 data-i18n="dashboardHeader">myFoods Dashboard – Pizza Palace</h1>
     <div class="header-controls">
-      <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+      <button class="burger-btn" onclick="toggleSidebar()">☰</button>
+    </div>
+  </header>
+
+  <!-- Burger Sidebar -->
+  <div id="burgerSidebar" class="burger-sidebar">
+    <div class="burger-content">
+      <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+
+      <h3 data-i18n="settings">Settings</h3>
+
+      <button class="login-btn" onclick="toggleLoginModal()" data-i18n="login">Login</button>
+
       <div class="theme-toggle">
+        <label data-i18n="darkMode">Dark Mode</label>
         <label class="toggle-switch">
           <input type="checkbox" id="themeSwitch">
           <span class="slider"></span>
         </label>
       </div>
+
+      <div class="language-toggle">
+        <label data-i18n="language">Language</label>
+        <select id="languageSwitch">
+          <option value="en" data-i18n="english">English</option>
+          <option value="de" data-i18n="german">Deutsch</option>
+        </select>
+      </div>
     </div>
-  </header>
+  </div>
 
   <!-- Login Modal -->
   <div id="loginModal" class="login-modal">
     <div class="login-modal-content">
       <button class="close-btn" onclick="toggleLoginModal()">&times;</button>
-      <h2>Login to Pizza Palace</h2>
+      <h2 data-i18n="loginHeader">Login to Pizza Palace</h2>
       <form onsubmit="handleLogin(event)">
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="your@email.com" required>
+          <label for="email" data-i18n="email">Email</label>
+          <input type="email" id="email" placeholder="" data-i18n-placeholder="emailPlaceholder" required>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter your password" required>
+          <label for="password" data-i18n="password">Password</label>
+          <input type="password" id="password" placeholder="" data-i18n-placeholder="passwordPlaceholder" required>
         </div>
         <div class="form-group checkbox">
           <input type="checkbox" id="remember">
-          <label for="remember">Remember me</label>
+          <label for="remember" data-i18n="remember">Remember me</label>
         </div>
-        <button type="submit" class="submit-btn">Sign In</button>
+        <button type="submit" class="submit-btn" data-i18n="signIn">Sign In</button>
       </form>
-      <p class="login-footer">Don't have an account? <a href="#">Sign up</a></p>
+      <p class="login-footer" data-i18n="signupText">Don't have an account? <a href="#">Sign up</a></p>
     </div>
   </div>
 
   <div class="layout">
     <nav class="sidebar">
-      <button onclick="showTab('orders')">Orders</button>
-      <button onclick="showTab('order-items')">Order Items</button>
-      <button onclick="showTab('menu')">Menu</button>
-      <button onclick="showTab('hours')">Opening Hours</button>
-      <button onclick="showTab('holidays')">Holidays</button>
-      <button onclick="showTab('reviews')">Reviews</button>
-      <button onclick="showTab('notifications')">Notifications</button>
-      <button onclick="showTab('users')">Staff</button>
-      <button onclick="showTab('roles')">Roles</button>
-      <button onclick="showTab('addresses')">Addresses</button>
-      <button onclick="showTab('inventory')">Inventory</button>
+      <button onclick="showTab('orders')" data-i18n="orders">Orders</button>
+      <button onclick="showTab('order-items')" data-i18n="orderItems">Order Items</button>
+      <button onclick="showTab('menu')" data-i18n="menu">Menu</button>
+      <button onclick="showTab('hours')" data-i18n="hours">Opening Hours</button>
+      <button onclick="showTab('holidays')" data-i18n="holidays">Holidays</button>
+      <button onclick="showTab('reviews')" data-i18n="reviews">Reviews</button>
+      <button onclick="showTab('notifications')" data-i18n="notifications">Notifications</button>
+      <button onclick="showTab('users')" data-i18n="staff">Staff</button>
+      <button onclick="showTab('roles')" data-i18n="roles">Roles</button>
+      <button onclick="showTab('addresses')" data-i18n="addresses">Addresses</button>
+      <button onclick="showTab('inventory')" data-i18n="inventory">Inventory</button>
     </nav>
 
     <main class="content">
 
       <!-- ORDERS -->
       <section id="orders" class="tab active">
-        <h2>Orders</h2>
+        <h2 data-i18n="orders">Orders</h2>
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Status</th>
-              <th>Type</th>
-              <th>Total</th>
-              <th>Payment</th>
-              <th>Placed</th>
+              <th data-i18n="id">ID</th>
+              <th data-i18n="status">Status</th>
+              <th data-i18n="type">Type</th>
+              <th data-i18n="total">Total</th>
+              <th data-i18n="payment">Payment</th>
+              <th data-i18n="placed">Placed</th>
             </tr>
           </thead>
           <tbody>
@@ -94,15 +115,15 @@
 
       <!-- ORDER ITEMS -->
       <section id="order-items" class="tab">
-        <h2>Order Items</h2>
+        <h2 data-i18n="orderItems">Order Items</h2>
         <table>
           <thead>
             <tr>
-              <th>Order ID</th>
-              <th>Item</th>
-              <th>Qty</th>
-              <th>Total</th>
-              <th>Note</th>
+              <th data-i18n="orderId">Order ID</th>
+              <th data-i18n="item">Item</th>
+              <th data-i18n="quantity">Qty</th>
+              <th data-i18n="total">Total</th>
+              <th data-i18n="note">Note</th>
             </tr>
           </thead>
           <tbody>
@@ -119,30 +140,28 @@
 
       <!-- MENU -->
       <section id="menu" class="tab">
-        <h2>Menu Items</h2>
+        <h2 data-i18n="menu">Menu</h2>
 
-        <!-- Add new item -->
         <div class="form-box">
-          <h3>Add Item</h3>
-          <input type="text" placeholder="Name">
-          <input type="text" placeholder="Description">
-          <input type="number" placeholder="Price">
-          <input type="number" placeholder="Prep Minutes">
+          <h3 data-i18n="addItem">Add Item</h3>
+          <input type="text" placeholder="" data-i18n-placeholder="name">
+          <input type="text" placeholder="" data-i18n-placeholder="description">
+          <input type="number" placeholder="" data-i18n-placeholder="price">
+          <input type="number" placeholder="" data-i18n-placeholder="prepMinutes">
           <label>
-            <input type="checkbox"> Available
+            <input type="checkbox"> <span data-i18n="available">Available</span>
           </label>
-          <button>Add Item</button>
+          <button data-i18n="addItem">Add Item</button>
         </div>
 
-        <!-- Existing items -->
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Available</th>
-              <th>Prep</th>
-              <th>Action</th>
+              <th data-i18n="name">Name</th>
+              <th data-i18n="price">Price</th>
+              <th data-i18n="available">Available</th>
+              <th data-i18n="prep">Prep</th>
+              <th data-i18n="action">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -152,8 +171,8 @@
               <td><input type="checkbox" checked></td>
               <td><input type="number" value="15"></td>
               <td>
-                <button>Save</button>
-                <button class="danger">Delete</button>
+                <button data-i18n="save">Save</button>
+                <button class="danger" data-i18n="delete">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -162,67 +181,66 @@
 
       <!-- HOURS -->
       <section id="hours" class="tab">
-        <h2>Opening Hours</h2>
-
+        <h2 data-i18n="hours">Opening Hours</h2>
         <table>
           <thead>
             <tr>
-              <th>Day</th>
-              <th>Open</th>
-              <th>Close</th>
-              <th>Closed</th>
-              <th>Action</th>
+              <th data-i18n="day">Day</th>
+              <th data-i18n="open">Open</th>
+              <th data-i18n="close">Close</th>
+              <th data-i18n="closed">Closed</th>
+              <th data-i18n="action">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Monday</td>
+              <td data-i18n="monday">Monday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
             <tr>
-              <td>Tuesday</td>
+              <td data-i18n="tuesday">Tuesday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
             <tr>
-              <td>Wednesday</td>
+              <td data-i18n="wednesday">Wednesday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
             <tr>
-              <td>Thursday</td>
+              <td data-i18n="thursday">Thursday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
             <tr>
-              <td>Friday</td>
+              <td data-i18n="friday">Friday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
             <tr>
-              <td>Saturday</td>
+              <td data-i18n="saturday">Saturday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
             <tr>
-              <td>Sunday</td>
+              <td data-i18n="sunday">Sunday</td>
               <td><input type="time" value="10:00"></td>
               <td><input type="time" value="22:00"></td>
               <td><input type="checkbox"></td>
-              <td><button>Save</button></td>
+              <td><button data-i18n="save">Save</button></td>
             </tr>
           </tbody>
         </table>
@@ -230,24 +248,22 @@
 
       <!-- HOLIDAYS -->
       <section id="holidays" class="tab">
-        <h2>Holidays</h2>
-
+        <h2 data-i18n="holidays">Holidays</h2>
         <div class="form-inline">
           <input type="date">
-          <button>Add Holiday</button>
+          <button data-i18n="addHoliday">Add Holiday</button>
         </div>
-
         <table>
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Action</th>
+              <th data-i18n="date">Date</th>
+              <th data-i18n="action">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>24.12.2026 - 05.01.2027</td>
-              <td><button class="danger">Remove</button></td>
+              <td><button class="danger" data-i18n="remove">Remove</button></td>
             </tr>
           </tbody>
         </table>
@@ -255,15 +271,15 @@
 
       <!-- REVIEWS -->
       <section id="reviews" class="tab">
-        <h2>Reviews</h2>
+        <h2 data-i18n="reviews">Reviews</h2>
         <table>
           <thead>
             <tr>
-              <th>User</th>
-              <th>Food</th>
-              <th>Delivery</th>
-              <th>Overall</th>
-              <th>Comment</th>
+              <th data-i18n="user">User</th>
+              <th data-i18n="food">Food</th>
+              <th data-i18n="delivery">Delivery</th>
+              <th data-i18n="overall">Overall</th>
+              <th data-i18n="comment">Comment</th>
             </tr>
           </thead>
           <tbody>
@@ -280,14 +296,14 @@
 
       <!-- NOTIFICATIONS -->
       <section id="notifications" class="tab">
-        <h2>Notifications</h2>
+        <h2 data-i18n="notifications">Notifications</h2>
         <table>
           <thead>
             <tr>
-              <th>Type</th>
-              <th>Channel</th>
-              <th>Title</th>
-              <th>Sent</th>
+              <th data-i18n="type">Type</th>
+              <th data-i18n="channel">Channel</th>
+              <th data-i18n="title">Title</th>
+              <th data-i18n="sent">Sent</th>
             </tr>
           </thead>
           <tbody>
@@ -301,23 +317,23 @@
         </table>
       </section>
 
-      <!-- STAFF USERS -->
+      <!-- STAFF -->
       <section id="users" class="tab">
-        <h2>Staff</h2>
+        <h2 data-i18n="staff">Staff</h2>
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Active</th>
-              <th>Last Login</th>
+              <th data-i18n="name">Name</th>
+              <th data-i18n="email">Email</th>
+              <th data-i18n="active">Active</th>
+              <th data-i18n="lastLogin">Last Login</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Anna</td>
               <td>anna@pizza.ch</td>
-              <td>Yes</td>
+              <td data-i18n="yes">Yes</td>
               <td>Yesterday</td>
             </tr>
           </tbody>
@@ -326,18 +342,18 @@
 
       <!-- ROLES -->
       <section id="roles" class="tab">
-        <h2>Roles & Permissions</h2>
+        <h2 data-i18n="roles">Roles & Permissions</h2>
         <table>
           <thead>
             <tr>
-              <th>Role</th>
-              <th>Permissions</th>
+              <th data-i18n="role">Role</th>
+              <th data-i18n="permissions">Permissions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Küche</td>
-              <td>View Orders, Update Status</td>
+              <td data-i18n="kitchenPermissions">View Orders, Update Status</td>
             </tr>
           </tbody>
         </table>
@@ -345,14 +361,14 @@
 
       <!-- ADDRESSES -->
       <section id="addresses" class="tab">
-        <h2>Customer Addresses</h2>
+        <h2 data-i18n="addresses">Customer Addresses</h2>
         <table>
           <thead>
             <tr>
-              <th>User</th>
-              <th>Street</th>
-              <th>City</th>
-              <th>ZIP</th>
+              <th data-i18n="user">User</th>
+              <th data-i18n="street">Street</th>
+              <th data-i18n="city">City</th>
+              <th data-i18n="zip">ZIP</th>
             </tr>
           </thead>
           <tbody>
@@ -368,35 +384,46 @@
 
       <!-- INVENTORY -->
       <section id="inventory" class="tab">
-        <h2>Inventory</h2>
-
-        <!-- Add Item -->
-        <div class="form-box">
-          <h3>Add Item</h3>
-          <input type="text" placeholder="Item Name" id="ingredientName">
-          <input type="number" placeholder="Quantity" id="ingredientQty">
-          <input type="number" placeholder="Minimum Threshold" id="ingredientMin">
-          <label>
-            <input type="checkbox" id="autoReorder"> Auto Reorder
-          </label>
-          <button class="additembutton" onclick="addIngredient()">Add Item</button>
+        <h2 data-i18n="inventory">Inventory</h2>
+        <button class="additem-btn" onclick="toggleAddItemModal()" data-i18n="addItem">+</button>
+        <div id="additemmodal" class="additem-modal">
+          <div class="additem-modal-content">
+            <button class="close-btn" onclick="toggleAddItemModal()">&times;</button>
+            <h2 data-i18n="addItem">Add Item</h2>
+            <form onsubmit="handleAddItem(event)">
+              <div class="form-group-additem">
+                <label data-i18n="itemName">Item Name</label>
+                <input type="text" id="ingredientName" placeholder="" required>
+              </div>
+              <div class="form-group-additem">
+                <label data-i18n="quantity">Quantity</label>
+                <input type="number" id="ingredientQty" placeholder="" required>
+              </div>
+              <div class="form-group-additem">
+                <label data-i18n="min">Minimum Threshold</label>
+                <input type="number" id="ingredientMin" placeholder="" required>
+              </div>
+              <div class="form-group-additem checkbox">
+                <input type="checkbox" id="autoReorder">
+                <label data-i18n="autoBuy">Auto Reorder</label>
+              </div>
+              <button class="additembutton" data-i18n="addItem">Add Item</button>
+            </form>
+          </div>
         </div>
 
-        <!-- Inventory Table -->
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Min</th>
-              <th>Status</th>
-              <th>Auto Buy</th>
-              <th>Action</th>
+              <th data-i18n="name">Name</th>
+              <th data-i18n="quantity">Quantity</th>
+              <th data-i18n="min">Min</th>
+              <th data-i18n="status">Status</th>
+              <th data-i18n="autoBuy">Auto Buy</th>
+              <th data-i18n="action">Action</th>
             </tr>
           </thead>
-
-          <tbody id="inventoryTableBody">
-          </tbody>
+          <tbody id="inventoryTableBody"></tbody>
         </table>
       </section>
 

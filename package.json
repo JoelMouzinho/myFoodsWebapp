@@ -12,5 +12,8 @@
   "type": "commonjs",
   "dependencies": {
     "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2"
   }
 }

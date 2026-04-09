@@ -127,6 +127,7 @@ header img {
     transform: translateY(50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -255,6 +256,118 @@ header img {
   text-decoration: underline;
 }
 
+.additem-btn {
+  padding: 20px 50px;
+  margin-bottom: 20px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.additem-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.additem-btn:active {
+  transform: translateY(0);
+}
+
+/* Add Item Modal Styles */
+.additem-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease;
+}
+
+.additem-modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.additem-modal-content {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+.additem-modal-content h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 24px;
+}
+
+.form-group-additem {
+  margin-bottom: 1.2rem;
+}
+
+.form-group-additem label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.form-group-additem input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.form-group-additem input {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-group-additem.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.form-group-additem.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.form-group-additem.checkbox label {
+  margin: 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 /* Modern Toggle Switch */
 .theme-toggle {
   display: flex;
@@ -301,12 +414,12 @@ header img {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(26px);
 }
 
@@ -315,7 +428,7 @@ input:checked + .slider:before {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-input:checked + .slider:hover {
+input:checked+.slider:hover {
   box-shadow: 0 2px 12px rgba(102, 126, 234, 0.5);
 }
 
@@ -330,7 +443,7 @@ input:checked + .slider:hover {
   opacity: 1;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   color: white;
 }
 
@@ -400,6 +513,7 @@ input:checked + .slider {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -647,6 +761,7 @@ tbody tr.modified:hover {
     transform: translateX(400px);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -658,6 +773,7 @@ tbody tr.modified:hover {
     transform: translateX(0);
     opacity: 1;
   }
+
   to {
     transform: translateX(400px);
     opacity: 0;
@@ -701,4 +817,51 @@ tbody tr.modified:hover {
   header h1 {
     font-size: 20px;
   }
+}
+
+/* Burger Button */
+.burger-btn {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--header-text);
+}
+
+/* Sidebar Overlay */
+.burger-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: var(--card);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+/* Active state */
+.burger-sidebar.active {
+  right: 0;
+}
+
+/* Content */
+.burger-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Overlay background (optional but nice) */
+.burger-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.4;
+  z-index: 1000;
 }
